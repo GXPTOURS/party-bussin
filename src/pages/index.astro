@@ -1,0 +1,657 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const packages = [
+  {
+    name: "Ghost Bar Meetup",
+    price: 99,
+    bus: "1-Hour Party Bus",
+    highlight: false,
+    features: [
+      "Ghost Bar lounge entry",
+      "1-hour private party bus",
+      "Las Vegas Sign photo stop",
+      "Champagne & beverages",
+      "Nightclub entry included",
+      "Gratuity included",
+    ],
+  },
+  {
+    name: "Coyote Ugly Meetup",
+    price: 99,
+    bus: "1-Hour Party Bus",
+    highlight: false,
+    features: [
+      "Coyote Ugly lounge entry",
+      "1-hour private party bus",
+      "Las Vegas Sign photo stop",
+      "Champagne & beverages",
+      "Nightclub entry included",
+      "Gratuity included",
+    ],
+  },
+  {
+    name: "Coyote Ugly",
+    price: 139,
+    bus: "2-Hour Party Bus",
+    highlight: true,
+    badge: "Most Popular",
+    features: [
+      "Coyote Ugly lounge entry",
+      "2-hour private party bus",
+      "Las Vegas Sign photo stop",
+      "Champagne & beverages",
+      "Nightclub entry included",
+      "Gratuity included",
+    ],
+  },
+];
+
+const clubs = [
+  "Jewel at Aria", "Marquee at Cosmopolitan", "Hakkasan at MGM Grand",
+  "Omnia at Caesars Palace", "Foundation Room at Mandalay Bay", "Ghostbar at Palms",
+  "Zouk at Resorts World", "XS at Encore", "LIV at Fontainebleau",
+  "On The Record at Park MGM", "Tao at Venetian", "EBC @ Night at Encore",
+];
+
+const vehicles = [
+  { tier: 1, name: "Stretch Sedan Limo", people: "Small groups" },
+  { tier: 2, name: "Sprinter Limo", people: "Up to 8" },
+  { tier: 3, name: "XL Sprinter Limo", people: "Up to 12" },
+  { tier: 4, name: "Stretch Hummer Limo", people: "Up to 18" },
+  { tier: 5, name: "Party Bus", people: "Up to 25" },
+  { tier: 6, name: "XL Party Bus", people: "Up to 45" },
+];
+
+const steps = [
+  { num: "01", title: "Book Your Date", desc: "Choose your package and confirm your headcount. Groups of 4–100+ welcome." },
+  { num: "02", title: "We Handle Everything", desc: "Our team schedules venues, arranges entry, and manages every timing detail for you." },
+  { num: "03", title: "Your Bus Arrives", desc: "Private party bus picks your group up. Champagne flowing, music on, Las Vegas Sign stop included." },
+  { num: "04", title: "VIP Nightclub Entry", desc: "Skip the line and walk straight into one of Vegas's top clubs. Your night is already legendary." },
+];
+
+const faqs = [
+  {
+    q: "What's the dress code?",
+    a: "Dress to impress. No flip-flops, sports jerseys, workout clothes, baseball caps, or offensive imagery at the nightclubs. Smart casual or club attire works perfectly.",
+  },
+  {
+    q: "Can we bring our own drinks (BYOB)?",
+    a: "Yes — the party bus is BYOB-friendly. We also provide complimentary champagne, mixers, cups, straws, napkins, and fresh ice. Responsible drinking is expected.",
+  },
+  {
+    q: "What if someone in our group is under 21?",
+    a: "All participants must be 21+ with a valid ID. IDs are checked at three points throughout the experience. Exception: 21st birthday participants are welcome if the reservation starts at midnight or later.",
+  },
+  {
+    q: "How far in advance should I book?",
+    a: "At least 1–2 weeks ahead for regular weekends. For peak dates (EDC, Memorial Day, 4th of July, NYE, major conferences) book 4–6 weeks out — those sell fast.",
+  },
+  {
+    q: "Is the group kept private?",
+    a: "Absolutely. Your group is never paired with strangers. You get a private bus, private lounge time, and your own nightclub entry — the entire experience is yours.",
+  },
+  {
+    q: "What if I don't know which nightclub I want?",
+    a: "Clubs vary by day — our team selects the best available option for your date. You can request a preference and we'll do our best to accommodate it.",
+  },
+];
+
+const busyDates = [
+  { event: "EDC", dates: "May 15–17" },
+  { event: "Memorial Day Weekend", dates: "May 22–25" },
+  { event: "EVO 2026", dates: "June 26–27" },
+  { event: "4th of July", dates: "July 3–4" },
+  { event: "Labor Day", dates: "Sept 4–6" },
+  { event: "G2E Conference", dates: "Oct 2–3" },
+  { event: "IMEX", dates: "Oct 16–17" },
+  { event: "SEMA", dates: "Nov 6–7" },
+  { event: "New Year's Eve", dates: "Dec 31" },
+];
+---
+
+<Layout title="Nightclub on Wheels | GXP Tours Las Vegas">
+
+  <!-- STICKY NAV -->
+  <header class="sticky-nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">GXP<span>TOURS</span></a>
+      <div class="nav-links">
+        <a href="#packages">Packages</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#clubs">Clubs</a>
+        <a href="#faq">FAQ</a>
+        <a href="tel:+17024830463" class="nav-phone">📞 (702) 483-0463</a>
+      </div>
+      <a href="https://gxptours.rezdy.com" target="_blank" class="btn btn-gold nav-cta">Book Now</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-badge">⭐ 4.9 Stars · 500+ Google Reviews · 17 Years in Vegas</div>
+      <h1>Las Vegas's Most Epic<br /><span class="gold">Nightclub on Wheels</span></h1>
+      <p class="hero-sub">Private party bus + champagne + Las Vegas Sign photo stop + VIP nightclub entry — all-inclusive from <strong>$99/person</strong>. Zero hidden fees. Zero stress.</p>
+      <div class="hero-press">As seen in: <strong>Daily Mail</strong> · <strong>ITV UK</strong> · <strong>Bold Journey Magazine</strong></div>
+      <div class="hero-ctas">
+        <a href="https://gxptours.rezdy.com" target="_blank" class="btn btn-gold btn-lg">Book Your Night →</a>
+        <a href="tel:+17024830463" class="btn btn-outline btn-lg">📞 Call to Book</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">4–100+</span><span class="stat-label">Group Size</span></div>
+        <div class="stat"><span class="stat-num">$99</span><span class="stat-label">Starting Price</span></div>
+        <div class="stat"><span class="stat-num">4–6 hrs</span><span class="stat-label">Total Experience</span></div>
+        <div class="stat"><span class="stat-num">21+</span><span class="stat-label">Age Requirement</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <section class="trust-bar">
+    <div class="container trust-inner">
+      <div class="trust-item">🔒 No Hidden Fees</div>
+      <div class="trust-item">🎉 Private Groups Only</div>
+      <div class="trust-item">🥂 Champagne Included</div>
+      <div class="trust-item">⚡ Skip the Line Entry</div>
+      <div class="trust-item">🚌 BYOB-Friendly Bus</div>
+      <div class="trust-item">✅ Gratuity Included</div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL BANNER -->
+  <section class="testimonial-banner">
+    <div class="container">
+      <blockquote>
+        "Aaron never disappoints. My sister has used GXP for her Vegas trips multiple times — seamless coordination every single time."
+        <cite>— Christine Young ⭐⭐⭐⭐⭐</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- PACKAGES -->
+  <section id="packages" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Choose Your Package</h2>
+        <p>All packages include party bus, champagne, Las Vegas Sign stop, and nightclub entry. Gratuity always included.</p>
+      </div>
+      <div class="packages-grid">
+        {packages.map((pkg) => (
+          <div class={`package-card ${pkg.highlight ? 'package-card--featured' : ''}`}>
+            {pkg.badge && <div class="package-badge">{pkg.badge}</div>}
+            <div class="package-header">
+              <h3>{pkg.name}</h3>
+              <div class="package-bus">{pkg.bus}</div>
+            </div>
+            <div class="package-price">
+              <span class="price-amount">${pkg.price}</span>
+              <span class="price-per">/person</span>
+            </div>
+            <ul class="package-features">
+              {pkg.features.map((f) => (
+                <li><span class="check">✓</span> {f}</li>
+              ))}
+            </ul>
+            <a href="https://gxptours.rezdy.com" target="_blank" class={`btn ${pkg.highlight ? 'btn-gold' : 'btn-outline'} btn-full`}>
+              Book {pkg.name} →
+            </a>
+          </div>
+        ))}
+      </div>
+      <p class="packages-note">Groups of 17+ can add a professional photographer/videographer. VIP bottle service available as upgrade at the nightclub.</p>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works" class="section section--dark">
+    <div class="container">
+      <div class="section-header">
+        <h2>How It Works</h2>
+        <p>We handle every detail so your group can focus on having the best night of their lives.</p>
+      </div>
+      <div class="steps-grid">
+        {steps.map((step) => (
+          <div class="step-card">
+            <div class="step-num">{step.num}</div>
+            <h3>{step.title}</h3>
+            <p>{step.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CLUBS -->
+  <section id="clubs" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Top Venues We Access</h2>
+        <p>Available clubs rotate by day. Our team matches your date to the best club on the strip. Request a preference at booking.</p>
+      </div>
+      <div class="clubs-grid">
+        {clubs.map((club) => (
+          <div class="club-chip">{club}</div>
+        ))}
+      </div>
+      <div class="clubs-note">
+        <strong>Note:</strong> Blackout artist events (Calvin Harris, John Summit, Martin Garrix, etc.) require contacting us directly for availability.
+      </div>
+    </div>
+  </section>
+
+  <!-- VEHICLE FLEET -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="section-header">
+        <h2>Your Vehicle, Matched to Your Group</h2>
+        <p>We automatically assign the right vehicle based on your headcount. Every tier is luxury.</p>
+      </div>
+      <div class="vehicles-grid">
+        {vehicles.map((v) => (
+          <div class="vehicle-card">
+            <div class="vehicle-tier">Tier {v.tier}</div>
+            <div class="vehicle-name">{v.name}</div>
+            <div class="vehicle-people">{v.people}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT'S INCLUDED -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Everything Included on Your Bus</h2>
+        <p>No surprise charges. No "bring your own everything." We've got you covered.</p>
+      </div>
+      <div class="inclusions-grid">
+        <div class="inclusion-card">
+          <div class="inclusion-icon">🥂</div>
+          <h4>Complimentary Champagne</h4>
+          <p>Complimentary champagne and beverages from the moment you board.</p>
+        </div>
+        <div class="inclusion-card">
+          <div class="inclusion-icon">🧊</div>
+          <h4>Full Bar Setup</h4>
+          <p>Mixers, cups, straws, napkins, and fresh ice — BYOB always welcome too.</p>
+        </div>
+        <div class="inclusion-card">
+          <div class="inclusion-icon">📸</div>
+          <h4>Las Vegas Sign Stop</h4>
+          <p>Photo stop at the iconic Las Vegas sign. The photo you came for.</p>
+        </div>
+        <div class="inclusion-card">
+          <div class="inclusion-icon">🎵</div>
+          <h4>Your Music</h4>
+          <p>Bluetooth-enabled — play whatever gets your group hyped.</p>
+        </div>
+        <div class="inclusion-card">
+          <div class="inclusion-icon">🚪</div>
+          <h4>Nightclub Entry</h4>
+          <p>Skip the line. Walk straight in. Entry to a top Vegas nightclub included.</p>
+        </div>
+        <div class="inclusion-card">
+          <div class="inclusion-icon">💰</div>
+          <h4>Gratuity Included</h4>
+          <p>No awkward tip calculations. Driver gratuity is built into the price.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUSY DATES / URGENCY -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="section-header">
+        <h2>🔥 High-Demand Dates — Book Early</h2>
+        <p>These dates sell out weeks in advance. Don't wait until it's too late.</p>
+      </div>
+      <div class="dates-grid">
+        {busyDates.map((d) => (
+          <div class="date-card">
+            <div class="date-event">{d.event}</div>
+            <div class="date-dates">{d.dates}</div>
+          </div>
+        ))}
+      </div>
+      <div class="dates-cta">
+        <a href="https://gxptours.rezdy.com" target="_blank" class="btn btn-gold btn-lg">Check Availability →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF / TESTIMONIALS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>What Groups Are Saying</h2>
+        <div class="rating-bar">
+          <span class="stars">⭐⭐⭐⭐⭐</span>
+          <span class="rating-text">4.9 out of 5 · 500+ Google Reviews</span>
+        </div>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="t-stars">⭐⭐⭐⭐⭐</div>
+          <p>"Aaron never disappoints. My sister has used GXP for her Vegas trips multiple times — seamless coordination every single time."</p>
+          <cite>— Christine Young</cite>
+        </div>
+        <div class="testimonial-card">
+          <div class="t-stars">⭐⭐⭐⭐⭐</div>
+          <p>"Best bachelorette experience we could have asked for. Everything was taken care of — we just showed up and had the time of our lives."</p>
+          <cite>— Sarah M.</cite>
+        </div>
+        <div class="testimonial-card">
+          <div class="t-stars">⭐⭐⭐⭐⭐</div>
+          <p>"We were a group of 30. GXP handled every single detail. The party bus was incredible and we skipped every line. Worth every penny."</p>
+          <cite>— Marcus T.</cite>
+        </div>
+      </div>
+      <div class="press-logos">
+        <span class="press-label">As Featured In</span>
+        <div class="press-items">
+          <span>Daily Mail Online</span>
+          <span>ITV UK / Channel 5</span>
+          <span>Bold Journey Magazine</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section section--dark">
+    <div class="container">
+      <div class="section-header">
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      <div class="faq-list">
+        {faqs.map((item) => (
+          <details class="faq-item">
+            <summary class="faq-q">{item.q}</summary>
+            <div class="faq-a">{item.a}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <div class="container">
+      <h2>Ready for the Best Night in Vegas?</h2>
+      <p>Groups of 4 to 100+. Private, all-inclusive, zero stress. Starting at $99/person.</p>
+      <div class="final-cta-buttons">
+        <a href="https://gxptours.rezdy.com" target="_blank" class="btn btn-gold btn-lg">Book Now →</a>
+        <a href="tel:+17024830463" class="btn btn-outline btn-lg">📞 (702) 483-0463</a>
+        <a href="mailto:info@gxptours.com" class="btn btn-outline btn-lg">✉ Email Us</a>
+      </div>
+      <p class="final-hours">Office Hours: Mon–Fri, 10am–5pm PST · Las Vegas, NV</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">GXP<span>TOURS</span></div>
+        <p>3651 S Lindell Rd Suite D154<br />Las Vegas, NV 89103</p>
+        <p><a href="tel:+17024830463">(702) 483-0463</a> · <a href="mailto:info@gxptours.com">info@gxptours.com</a></p>
+      </div>
+      <div class="footer-links">
+        <a href="https://gxptours.com">Main Site</a>
+        <a href="https://gxptours.com/dress-code/">Dress Code</a>
+        <a href="https://gxptours.com/faq/">FAQ</a>
+        <a href="https://gxptours.com/contact/">Contact</a>
+      </div>
+      <div class="footer-social">
+        <a href="https://tiktok.com/@gxptours" target="_blank">TikTok</a>
+        <a href="https://instagram.com/gxptours" target="_blank">Instagram</a>
+        <a href="https://youtube.com/@gxptours" target="_blank">YouTube</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; {new Date().getFullYear()} GXP Tours. All rights reserved.</p>
+    </div>
+  </footer>
+
+</Layout>
+
+<style>
+  /* NAV */
+  .sticky-nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(10,10,10,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(212,175,55,0.2);
+  }
+  .nav-inner {
+    max-width: 1200px; margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex; align-items: center; gap: 1.5rem;
+    height: 64px;
+  }
+  .nav-logo {
+    font-size: 1.25rem; font-weight: 900; letter-spacing: 0.05em; white-space: nowrap;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links {
+    display: flex; align-items: center; gap: 1.25rem; flex: 1;
+    font-size: 0.875rem;
+  }
+  .nav-links a { color: var(--text-muted); transition: color 0.2s; }
+  .nav-links a:hover { color: var(--white); }
+  .nav-phone { color: var(--gold) !important; font-weight: 600; }
+  .nav-cta { margin-left: auto; white-space: nowrap; }
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+  }
+
+  /* BUTTONS */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 0.625rem 1.5rem;
+    border-radius: 6px; font-weight: 600; font-size: 0.9rem;
+    border: 2px solid transparent; cursor: pointer; transition: all 0.2s;
+  }
+  .btn-gold {
+    background: var(--gold); color: var(--black); border-color: var(--gold);
+  }
+  .btn-gold:hover { background: var(--gold-light); border-color: var(--gold-light); }
+  .btn-outline {
+    background: transparent; color: var(--white); border-color: rgba(255,255,255,0.3);
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+  .btn-lg { padding: 0.875rem 2rem; font-size: 1rem; }
+  .btn-full { width: 100%; }
+
+  /* HERO */
+  .hero {
+    position: relative; min-height: 90vh;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 5rem 1.5rem;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, #0A0A0A 0%, #1A0A1A 50%, #0A0A0A 100%);
+  }
+  .hero-bg::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 50%, rgba(212,175,55,0.12) 0%, transparent 70%);
+  }
+  .hero-content { position: relative; max-width: 800px; }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(212,175,55,0.15); border: 1px solid rgba(212,175,55,0.4);
+    color: var(--gold); padding: 0.4rem 1rem; border-radius: 999px;
+    font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    font-weight: 900; line-height: 1.1;
+    margin-bottom: 1.25rem;
+  }
+  .hero h1 .gold { color: var(--gold); }
+  .hero-sub {
+    font-size: 1.15rem; color: var(--text-muted);
+    max-width: 600px; margin: 0 auto 1rem;
+  }
+  .hero-sub strong { color: var(--white); }
+  .hero-press {
+    font-size: 0.8rem; color: var(--text-muted); margin-bottom: 2rem;
+  }
+  .hero-press strong { color: var(--text); }
+  .hero-ctas {
+    display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+  .hero-stats {
+    display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;
+  }
+  .stat { display: flex; flex-direction: column; }
+  .stat-num { font-size: 1.75rem; font-weight: 800; color: var(--gold); }
+  .stat-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+
+  /* TRUST BAR */
+  .trust-bar { background: var(--dark-2); border-top: 1px solid rgba(212,175,55,0.15); border-bottom: 1px solid rgba(212,175,55,0.15); padding: 1rem 0; }
+  .trust-inner { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+  .trust-item { font-size: 0.85rem; font-weight: 600; color: var(--text); }
+
+  /* TESTIMONIAL BANNER */
+  .testimonial-banner { background: linear-gradient(90deg, var(--dark-2), var(--dark-3), var(--dark-2)); padding: 2.5rem 1.5rem; text-align: center; }
+  .testimonial-banner blockquote { max-width: 700px; margin: 0 auto; font-size: 1.1rem; font-style: italic; color: var(--text); }
+  .testimonial-banner cite { display: block; margin-top: 0.75rem; font-style: normal; color: var(--gold); font-weight: 600; }
+
+  /* SECTIONS */
+  .section { padding: 5rem 1.5rem; }
+  .section--dark { background: var(--dark-2); }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-header { text-align: center; margin-bottom: 3rem; }
+  .section-header h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 800; margin-bottom: 0.75rem; }
+  .section-header p { color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+
+  /* PACKAGES */
+  .packages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem; }
+  .package-card {
+    background: var(--dark-2); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px; padding: 2rem; position: relative;
+    display: flex; flex-direction: column; gap: 1.25rem;
+  }
+  .package-card--featured {
+    border-color: var(--gold);
+    background: linear-gradient(180deg, rgba(212,175,55,0.07) 0%, var(--dark-2) 100%);
+    box-shadow: 0 0 30px rgba(212,175,55,0.1);
+  }
+  .package-badge {
+    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    background: var(--gold); color: var(--black);
+    padding: 0.2rem 1rem; border-radius: 999px; font-size: 0.75rem; font-weight: 700;
+    white-space: nowrap;
+  }
+  .package-header h3 { font-size: 1.2rem; font-weight: 700; }
+  .package-bus { font-size: 0.8rem; color: var(--gold); font-weight: 600; margin-top: 0.25rem; }
+  .package-price { display: flex; align-items: baseline; gap: 0.25rem; }
+  .price-amount { font-size: 3rem; font-weight: 900; color: var(--gold); line-height: 1; }
+  .price-per { font-size: 0.9rem; color: var(--text-muted); }
+  .package-features { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; flex: 1; }
+  .package-features li { font-size: 0.9rem; display: flex; gap: 0.5rem; }
+  .check { color: var(--gold); font-weight: 700; flex-shrink: 0; }
+  .packages-note { text-align: center; color: var(--text-muted); font-size: 0.85rem; }
+
+  /* STEPS */
+  .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+  .step-card { background: var(--dark-3); border-radius: 10px; padding: 1.75rem; }
+  .step-num { font-size: 2.5rem; font-weight: 900; color: rgba(212,175,55,0.3); margin-bottom: 0.5rem; }
+  .step-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .step-card p { font-size: 0.875rem; color: var(--text-muted); }
+
+  /* CLUBS */
+  .clubs-grid { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; margin-bottom: 1.5rem; }
+  .club-chip {
+    background: var(--dark-2); border: 1px solid rgba(212,175,55,0.25);
+    border-radius: 999px; padding: 0.4rem 1rem;
+    font-size: 0.875rem; color: var(--text);
+  }
+  .clubs-note { text-align: center; color: var(--text-muted); font-size: 0.8rem; max-width: 600px; margin: 0 auto; }
+
+  /* VEHICLES */
+  .vehicles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1rem; }
+  .vehicle-card {
+    background: var(--dark-3); border-radius: 10px; padding: 1.25rem; text-align: center;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .vehicle-tier { font-size: 0.7rem; color: var(--gold); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.4rem; }
+  .vehicle-name { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.3rem; }
+  .vehicle-people { font-size: 0.8rem; color: var(--text-muted); }
+
+  /* INCLUSIONS */
+  .inclusions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; }
+  .inclusion-card { background: var(--dark-2); border-radius: 10px; padding: 1.5rem; }
+  .inclusion-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+  .inclusion-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+  .inclusion-card p { font-size: 0.85rem; color: var(--text-muted); }
+
+  /* BUSY DATES */
+  .dates-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+  .date-card { background: var(--dark-3); border-radius: 8px; padding: 1rem; border-left: 3px solid var(--gold); }
+  .date-event { font-weight: 700; font-size: 0.9rem; margin-bottom: 0.25rem; }
+  .date-dates { font-size: 0.8rem; color: var(--gold); }
+  .dates-cta { text-align: center; }
+
+  /* TESTIMONIALS */
+  .rating-bar { display: flex; align-items: center; gap: 0.75rem; justify-content: center; margin-top: 0.5rem; }
+  .stars { font-size: 1.1rem; }
+  .rating-text { font-size: 0.9rem; color: var(--text-muted); }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-bottom: 2.5rem; }
+  .testimonial-card { background: var(--dark-2); border-radius: 10px; padding: 1.5rem; }
+  .t-stars { margin-bottom: 0.75rem; }
+  .testimonial-card p { font-size: 0.9rem; font-style: italic; color: var(--text); margin-bottom: 0.75rem; }
+  .testimonial-card cite { font-size: 0.8rem; color: var(--gold); font-weight: 600; font-style: normal; }
+  .press-logos { text-align: center; }
+  .press-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 0.75rem; }
+  .press-items { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; font-weight: 700; color: var(--text); font-size: 0.9rem; }
+
+  /* FAQ */
+  .faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 0.5rem; }
+  .faq-item {
+    background: var(--dark-3); border-radius: 8px; overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .faq-q {
+    padding: 1.1rem 1.25rem; font-weight: 600; cursor: pointer; list-style: none;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .faq-q::after { content: '+'; color: var(--gold); font-size: 1.25rem; font-weight: 300; }
+  details[open] .faq-q::after { content: '−'; }
+  .faq-a { padding: 0 1.25rem 1.1rem; font-size: 0.9rem; color: var(--text-muted); }
+
+  /* FINAL CTA */
+  .final-cta {
+    padding: 6rem 1.5rem; text-align: center;
+    background: linear-gradient(180deg, #0A0A0A 0%, #1A0A1A 100%);
+  }
+  .final-cta h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 800; margin-bottom: 0.75rem; }
+  .final-cta p { color: var(--text-muted); margin-bottom: 2rem; }
+  .final-cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1rem; }
+  .final-hours { font-size: 0.8rem; color: var(--text-muted); }
+
+  /* FOOTER */
+  .footer { background: #050505; border-top: 1px solid rgba(255,255,255,0.06); padding: 3rem 1.5rem 1.5rem; }
+  .footer-inner { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
+  .footer-logo { font-size: 1.2rem; font-weight: 900; margin-bottom: 0.75rem; }
+  .footer-logo span { color: var(--gold); }
+  .footer-brand p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.8; }
+  .footer-brand a { color: var(--text-muted); }
+  .footer-links, .footer-social { display: flex; flex-direction: column; gap: 0.5rem; }
+  .footer-links a, .footer-social a { font-size: 0.85rem; color: var(--text-muted); transition: color 0.2s; }
+  .footer-links a:hover, .footer-social a:hover { color: var(--gold); }
+  .footer-bottom { text-align: center; font-size: 0.75rem; color: var(--text-muted); border-top: 1px solid rgba(255,255,255,0.06); padding-top: 1.25rem; }
+  @media (max-width: 640px) {
+    .footer-inner { grid-template-columns: 1fr; }
+  }
+</style>
