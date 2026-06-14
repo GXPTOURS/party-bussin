@@ -80,25 +80,26 @@ import Layout from '../layouts/Layout.astro';
 
 <!-- AS SEEN IN -->
 <section class="press-section">
-  <div class="press-top">
-    <div class="press-top-label">As Featured In</div>
-    <div class="press-top-sub">GXP Tours recognized by international media &amp; press</div>
-  </div>
-  <div class="press-marquee-wrap">
-    <div class="press-fade-l"></div>
-    <div class="press-fade-r"></div>
-    <div class="press-marquee">
-      <div class="press-track">
-        <img src="/images/Bold Journey Logo.png" alt="Bold Journey" class="press-img"/>
+  <div class="container">
+    <div class="press-headline">
+      <div class="press-line"></div>
+      <span class="press-headline-text">As Featured In</span>
+      <div class="press-line"></div>
+    </div>
+    <div class="press-grid">
+      <div class="press-card">
         <img src="/images/Daily Mail U.K. Logo.png" alt="Daily Mail UK" class="press-img"/>
+      </div>
+      <div class="press-card">
         <img src="/images/ITV Logo.png" alt="ITV" class="press-img"/>
+      </div>
+      <div class="press-card">
         <img src="/images/TMZ Logo.png" alt="TMZ" class="press-img"/>
-        <img src="/images/Batch Logo.png" alt="Batch" class="press-img"/>
-        <!-- duplicate for seamless loop -->
+      </div>
+      <div class="press-card">
         <img src="/images/Bold Journey Logo.png" alt="Bold Journey" class="press-img"/>
-        <img src="/images/Daily Mail U.K. Logo.png" alt="Daily Mail UK" class="press-img"/>
-        <img src="/images/ITV Logo.png" alt="ITV" class="press-img"/>
-        <img src="/images/TMZ Logo.png" alt="TMZ" class="press-img"/>
+      </div>
+      <div class="press-card">
         <img src="/images/Batch Logo.png" alt="Batch" class="press-img"/>
       </div>
     </div>
@@ -739,22 +740,18 @@ h1{font-size:clamp(2.6rem,7.5vw,5.5rem);font-weight:900;color:var(--wh);margin-b
 .rh-btn:hover{opacity:.88;box-shadow:0 0 50px rgba(233,30,204,.6)}
 
 /* AS SEEN IN */
-.press-section{background:var(--d2);padding:3rem 0;border-top:2px solid rgba(233,30,204,.3);border-bottom:2px solid rgba(0,229,255,.2);position:relative;overflow:hidden;box-shadow:0 0 80px rgba(123,47,190,.12) inset}
-.press-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(123,47,190,.12),transparent 70%);pointer-events:none}
-.press-top{text-align:center;margin-bottom:2rem;position:relative;z-index:1}
-.press-top-label{font-size:.75rem;font-weight:800;letter-spacing:.25em;text-transform:uppercase;color:var(--pk);text-shadow:0 0 16px rgba(233,30,204,.7);margin-bottom:.4rem}
-.press-top-sub{font-size:.9rem;color:var(--mt)}
-.press-marquee-wrap{position:relative;overflow:hidden}
-.press-fade-l,.press-fade-r{position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
-.press-fade-l{left:0;background:linear-gradient(90deg,var(--d2),transparent)}
-.press-fade-r{right:0;background:linear-gradient(270deg,var(--d2),transparent)}
-.press-marquee{overflow:hidden}
-.press-track{display:flex;align-items:center;gap:5rem;white-space:nowrap;animation:press-scroll 22s linear infinite;width:max-content;padding:1rem 0}
-.press-track:hover{animation-play-state:paused}
-.press-img{height:56px;width:auto;max-width:180px;object-fit:contain;filter:brightness(0) invert(1);opacity:.55;transition:opacity .3s,transform .3s,filter .3s;flex-shrink:0}
-.press-img:hover{opacity:1;transform:scale(1.1);filter:brightness(0) invert(1) drop-shadow(0 0 14px rgba(233,30,204,.8)) drop-shadow(0 0 6px rgba(0,229,255,.5))}
-@keyframes press-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media(max-width:700px){.press-img{height:40px}.press-track{gap:3.5rem}}
+.press-section{background:linear-gradient(180deg,var(--d3) 0%,var(--d2) 100%);padding:4.5rem 1.5rem;border-top:1px solid rgba(233,30,204,.25);border-bottom:1px solid rgba(233,30,204,.25);position:relative;overflow:hidden}
+.press-section::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(233,30,204,.07),transparent 65%);pointer-events:none}
+.press-headline{display:flex;align-items:center;justify-content:center;gap:1.5rem;margin-bottom:3rem}
+.press-line{flex:1;max-width:200px;height:1px;background:linear-gradient(90deg,transparent,rgba(233,30,204,.5),transparent)}
+.press-headline-text{font-size:.8rem;font-weight:800;letter-spacing:.3em;text-transform:uppercase;color:var(--pk);white-space:nowrap;text-shadow:0 0 20px rgba(233,30,204,.6)}
+.press-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1.25rem;position:relative;z-index:1}
+.press-card{display:flex;align-items:center;justify-content:center;padding:2rem 1.5rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:12px;transition:border-color .3s,box-shadow .3s,background .3s}
+.press-card:hover{background:rgba(233,30,204,.06);border-color:rgba(233,30,204,.35);box-shadow:0 0 40px rgba(233,30,204,.12)}
+.press-img{height:64px;width:100%;max-width:160px;object-fit:contain;filter:brightness(0) invert(1);opacity:.55;transition:opacity .3s,filter .3s}
+.press-card:hover .press-img{opacity:1;filter:brightness(0) invert(1) drop-shadow(0 0 12px rgba(255,255,255,.5))}
+@media(max-width:860px){.press-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:500px){.press-grid{grid-template-columns:repeat(2,1fr)}.press-img{height:44px}}
 
 /* PACKAGE ITINERARY */
 .itinerary{background:rgba(0,229,255,.05);border:1px solid rgba(0,229,255,.18);border-radius:8px;padding:.85rem 1rem;margin:.25rem 0}
