@@ -80,27 +80,25 @@ import Layout from '../layouts/Layout.astro';
 
 <!-- AS SEEN IN -->
 <section class="press-section">
-  <div class="container">
-    <div class="press-label">As Featured In</div>
-    <p class="press-desc">GXP Tours has been featured by international media, influencers, and press as the premier private party experience in Las Vegas.</p>
-    <div class="press-logos">
-      <div class="press-logo-wrap">
+  <div class="press-top">
+    <div class="press-top-label">As Featured In</div>
+    <div class="press-top-sub">GXP Tours recognized by international media &amp; press</div>
+  </div>
+  <div class="press-marquee-wrap">
+    <div class="press-fade-l"></div>
+    <div class="press-fade-r"></div>
+    <div class="press-marquee">
+      <div class="press-track">
+        <img src="/images/Bold Journey Logo.png" alt="Bold Journey" class="press-img"/>
         <img src="/images/Daily Mail U.K. Logo.png" alt="Daily Mail UK" class="press-img"/>
-      </div>
-      <div class="press-divider"></div>
-      <div class="press-logo-wrap">
         <img src="/images/ITV Logo.png" alt="ITV" class="press-img"/>
-      </div>
-      <div class="press-divider"></div>
-      <div class="press-logo-wrap">
         <img src="/images/TMZ Logo.png" alt="TMZ" class="press-img"/>
-      </div>
-      <div class="press-divider"></div>
-      <div class="press-logo-wrap">
-        <img src="/images/Bold Journey Logo.png" alt="Bold Journey Magazine" class="press-img"/>
-      </div>
-      <div class="press-divider"></div>
-      <div class="press-logo-wrap">
+        <img src="/images/Batch Logo.png" alt="Batch" class="press-img"/>
+        <!-- duplicate for seamless loop -->
+        <img src="/images/Bold Journey Logo.png" alt="Bold Journey" class="press-img"/>
+        <img src="/images/Daily Mail U.K. Logo.png" alt="Daily Mail UK" class="press-img"/>
+        <img src="/images/ITV Logo.png" alt="ITV" class="press-img"/>
+        <img src="/images/TMZ Logo.png" alt="TMZ" class="press-img"/>
         <img src="/images/Batch Logo.png" alt="Batch" class="press-img"/>
       </div>
     </div>
@@ -141,7 +139,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
       </div>
       <div class="pf-card">
-        <div class="pf-img"><img src="/images/Dutch Bros Bus Party-089.jpg" alt="Corporate team outing Las Vegas"/></div>
+        <div class="pf-img"><img src="/images/Dutch Bros Bus Party-137.jpg" alt="Corporate team outing Las Vegas"/></div>
         <div class="pf-body">
           <div class="pf-icon">👔</div>
           <h3>Corporate &amp; Team Outings</h3>
@@ -741,18 +739,22 @@ h1{font-size:clamp(2.6rem,7.5vw,5.5rem);font-weight:900;color:var(--wh);margin-b
 .rh-btn:hover{opacity:.88;box-shadow:0 0 50px rgba(233,30,204,.6)}
 
 /* AS SEEN IN */
-.press-section{background:linear-gradient(180deg,var(--d2) 0%,var(--bk) 100%);padding:4rem 1.5rem;border-top:1px solid rgba(233,30,204,.15);border-bottom:1px solid rgba(0,229,255,.12);position:relative;overflow:hidden}
-.press-section::before{content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:600px;height:200px;background:radial-gradient(ellipse,rgba(123,47,190,.18),transparent 70%);pointer-events:none}
-.press-section .container{display:flex;flex-direction:column;align-items:center;gap:1.25rem}
-.press-label{font-size:.75rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--pk);text-shadow:0 0 12px rgba(233,30,204,.5)}
-.press-desc{font-size:.95rem;color:var(--mt);text-align:center;max-width:560px;line-height:1.7}
-.press-logos{display:flex;align-items:center;justify-content:center;gap:3rem;flex-wrap:wrap;padding:2rem 3rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:16px;box-shadow:0 0 40px rgba(123,47,190,.08);width:100%}
-.press-logo-wrap{display:flex;align-items:center;justify-content:center;padding:.5rem 1rem;transition:transform .2s}
-.press-logo-wrap:hover{transform:scale(1.08)}
-.press-img{height:52px;width:auto;max-width:170px;object-fit:contain;filter:brightness(0) invert(1);opacity:.6;transition:opacity .25s,filter .25s}
-.press-logo-wrap:hover .press-img{opacity:1;filter:brightness(0) invert(1) drop-shadow(0 0 8px rgba(255,255,255,.4))}
-.press-divider{width:1px;height:50px;background:linear-gradient(180deg,transparent,rgba(255,255,255,.15),transparent)}
-@media(max-width:700px){.press-divider{display:none}.press-logos{gap:2rem;padding:1.5rem}.press-img{height:38px}}
+.press-section{background:var(--d2);padding:3rem 0;border-top:2px solid rgba(233,30,204,.3);border-bottom:2px solid rgba(0,229,255,.2);position:relative;overflow:hidden;box-shadow:0 0 80px rgba(123,47,190,.12) inset}
+.press-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(123,47,190,.12),transparent 70%);pointer-events:none}
+.press-top{text-align:center;margin-bottom:2rem;position:relative;z-index:1}
+.press-top-label{font-size:.75rem;font-weight:800;letter-spacing:.25em;text-transform:uppercase;color:var(--pk);text-shadow:0 0 16px rgba(233,30,204,.7);margin-bottom:.4rem}
+.press-top-sub{font-size:.9rem;color:var(--mt)}
+.press-marquee-wrap{position:relative;overflow:hidden}
+.press-fade-l,.press-fade-r{position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
+.press-fade-l{left:0;background:linear-gradient(90deg,var(--d2),transparent)}
+.press-fade-r{right:0;background:linear-gradient(270deg,var(--d2),transparent)}
+.press-marquee{overflow:hidden}
+.press-track{display:flex;align-items:center;gap:5rem;white-space:nowrap;animation:press-scroll 22s linear infinite;width:max-content;padding:1rem 0}
+.press-track:hover{animation-play-state:paused}
+.press-img{height:56px;width:auto;max-width:180px;object-fit:contain;filter:brightness(0) invert(1);opacity:.55;transition:opacity .3s,transform .3s,filter .3s;flex-shrink:0}
+.press-img:hover{opacity:1;transform:scale(1.1);filter:brightness(0) invert(1) drop-shadow(0 0 14px rgba(233,30,204,.8)) drop-shadow(0 0 6px rgba(0,229,255,.5))}
+@keyframes press-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(max-width:700px){.press-img{height:40px}.press-track{gap:3.5rem}}
 
 /* PACKAGE ITINERARY */
 .itinerary{background:rgba(0,229,255,.05);border:1px solid rgba(0,229,255,.18);border-radius:8px;padding:.85rem 1rem;margin:.25rem 0}
