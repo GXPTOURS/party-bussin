@@ -64,6 +64,20 @@ import Layout from '../layouts/Layout.astro';
   </div>
 </section>
 
+<!-- BIG RATING SECTION -->
+<section class="rating-hero">
+  <div class="rh-stars-wrap">
+    <span class="rh-star rh-s1">★</span>
+    <span class="rh-star rh-s2">★</span>
+    <span class="rh-star rh-s3">★</span>
+    <span class="rh-star rh-s4">★</span>
+    <span class="rh-star rh-s5">★</span>
+  </div>
+  <p class="rh-sub">Read Hundreds Of 5-Star Google Reviews</p>
+  <h2 class="rh-score">AVG RATING 4.9 STARS</h2>
+  <a href="https://www.google.com/maps/search/GXP+Tours+Las+Vegas" target="_blank" class="rh-btn">Read Reviews</a>
+</section>
+
 <!-- AS SEEN IN -->
 <section class="press-section">
   <div class="container">
@@ -702,6 +716,18 @@ h1{font-size:clamp(2.6rem,7.5vw,5.5rem);font-weight:900;color:var(--wh);margin-b
 .hn strong{font-size:1.9rem;font-weight:900;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
 .hn span{font-size:.68rem;color:var(--mt);text-transform:uppercase;letter-spacing:.08em;margin-top:.2rem}
 .hdiv{width:1px;height:40px;background:rgba(255,255,255,.1)}
+
+/* BIG RATING SECTION */
+.rating-hero{background:var(--bk);padding:4rem 1.5rem 3.5rem;text-align:center;border-bottom:1px solid rgba(233,30,204,.12)}
+.rh-stars-wrap{display:flex;align-items:flex-end;justify-content:center;gap:.5rem;margin-bottom:1.25rem;height:100px}
+.rh-star{font-size:4rem;line-height:1;background:linear-gradient(180deg,#FFE566,#F59E0B,#D97706);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 4px 12px rgba(251,191,36,.6)) drop-shadow(0 0 30px rgba(251,191,36,.3));display:inline-block}
+.rh-s1,.rh-s5{font-size:3rem;margin-bottom:.5rem}
+.rh-s2,.rh-s4{font-size:3.75rem;margin-bottom:.25rem}
+.rh-s3{font-size:4.5rem;margin-bottom:0}
+.rh-sub{font-size:1rem;color:var(--tx);margin-bottom:.75rem}
+.rh-score{font-size:clamp(1.75rem,5vw,2.75rem);font-weight:900;color:var(--wh);letter-spacing:.04em;text-transform:uppercase;margin-bottom:1.5rem}
+.rh-btn{display:inline-block;background:var(--grad);color:#fff;font-weight:700;font-size:1rem;padding:.85rem 2.5rem;border-radius:999px;box-shadow:0 0 30px rgba(233,30,204,.4);transition:opacity .2s,box-shadow .2s}
+.rh-btn:hover{opacity:.88;box-shadow:0 0 50px rgba(233,30,204,.6)}
 
 /* AS SEEN IN */
 .press-section{background:var(--bk);padding:2.5rem 1.5rem;border-bottom:1px solid rgba(255,255,255,.06)}
