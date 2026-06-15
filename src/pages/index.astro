@@ -394,38 +394,198 @@ import Layout from '../layouts/Layout.astro';
   </div>
 </section>
 
-<!-- CLUB FINDER -->
+<!-- CLUB FINDER + VENUE GUIDE -->
 <section id="clubs" class="section s-dark">
   <div class="container">
-    <div class="slabel">Interactive Tool</div>
+    <div class="slabel">Nightclub Guide</div>
     <h2>Which Clubs Are Open <span class="grad">On Your Night?</span></h2>
-    <p class="sdesc">Vegas clubs rotate by day. Pick your date and see exactly which ones we can get your group into — then we lock it in for you.</p>
-    <div class="finder-layout">
-      <div class="finder">
-        <div class="finder-top">
-          <label for="eDate">Select Your Date</label>
-          <input type="date" id="eDate"/>
-          <p class="f-hint">Choose a date to see available clubs</p>
+    <p class="sdesc">Vegas clubs rotate by day of the week. Pick your night to see what's open — then explore the venue guide below to find the right vibe for your group.</p>
+
+    <!-- Day Tabs -->
+    <div class="vg-tabs" id="vgTabs">
+      <button class="vg-tab" data-day="1">Mon</button>
+      <button class="vg-tab" data-day="2">Tue</button>
+      <button class="vg-tab" data-day="3">Wed</button>
+      <button class="vg-tab" data-day="4">Thu</button>
+      <button class="vg-tab" data-day="5">Fri</button>
+      <button class="vg-tab" data-day="6">Sat</button>
+      <button class="vg-tab" data-day="0">Sun</button>
+    </div>
+
+    <!-- Club list for selected day -->
+    <div id="vgList" class="vg-list"></div>
+
+    <!-- LIV / Omnia warning -->
+    <div id="vgWarning" class="vg-warning hidden">
+      <div class="vgw-title">⚠️ Read Before Booking — Omnia &amp; LIV</div>
+      <ul>
+        <li>Early arrival is mandatory — these venues only work with the <strong>Coyote Ugly package</strong>, not the Ghostbar package.</li>
+        <li>The main DJ doesn't go on until 12–1 AM. You may be at the venue for several hours before the headliner starts.</li>
+        <li>These venues are extremely crowded.</li>
+        <li>Blacked-out events: <strong>Calvin Harris, John Summit, Martin Garrix.</strong> Contact us if you're set on one of these nights and we'll find you options.</li>
+      </ul>
+    </div>
+
+    <div class="vg-ctas">
+      <a href="https://gxptours.rezdy.com/catalog/530827/nightclub-on-wheels" target="_blank" class="btn-p">Book for This Night →</a>
+      <a href="sms:+17024830463" class="btn-g">Text Us to Confirm</a>
+    </div>
+
+    <!-- Venue Guide Cards -->
+    <div class="vg-divider">
+      <span>Venue Guide</span>
+    </div>
+    <p class="sdesc" style="margin-bottom:1.5rem">Not sure which club is right for your group? Here's everything you need to know about each venue.</p>
+
+    <div class="vg-cards">
+
+      <div class="vg-card" data-venues="On The Record at Park MGM">
+        <div class="vgc-head">
+          <div>
+            <div class="vgc-name">On The Record</div>
+            <div class="vgc-loc">Park MGM</div>
+          </div>
+          <div class="vgc-badge vgc-top">⭐ Top Pick</div>
         </div>
-        <div id="fResults" class="f-results hidden">
-          <div class="f-header">
-            <div id="fDay" class="f-day"></div>
-            <div id="fCount" class="f-count"></div>
-          </div>
-          <div id="fGrid" class="f-grid"></div>
-          <div id="fBlackout" class="f-blackout hidden">
-            ⚠️ <strong>Heads up:</strong> Major DJs (Calvin Harris, John Summit, Martin Garrix) may reduce availability this night. <a href="mailto:info@gxptours.com">Email us to confirm →</a>
-          </div>
-          <div class="f-btns">
-            <a href="https://gxptours.rezdy.com/catalog/530827/nightclub-on-wheels" target="_blank" class="btn-p">Book for This Date →</a>
-            <a href="tel:+17024830463" class="btn-g">📞 Call to Confirm</a>
+        <div class="vgc-genre">3 Rooms — Hip-Hop · RnB · Top 40 · Latin · Throwbacks</div>
+        <ul class="vgc-notes">
+          <li>Our highest-rated venue for groups since 2023</li>
+          <li>Something for everyone — rooms split by music style</li>
+        </ul>
+      </div>
+
+      <div class="vg-card" data-venues="Ghostbar at Palms">
+        <div class="vgc-head">
+          <div>
+            <div class="vgc-name">Ghostbar</div>
+            <div class="vgc-loc">Palms Casino</div>
           </div>
         </div>
+        <div class="vgc-genre">Chill Vibey House · Top 40 Dance</div>
+        <ul class="vgc-notes">
+          <li>55th-floor rooftop with panoramic Strip views</li>
+          <li>More relaxed atmosphere vs mega-clubs</li>
+        </ul>
       </div>
-      <div class="club-chart">
-        <div class="cc-label">Typical nightly schedule at a glance:</div>
-        <img src="/images/Daily Nightclub Options (NCOW) PNG.png" alt="Las Vegas nightclub schedule by night" loading="lazy"/>
+
+      <div class="vg-card" data-venues="Marquee at Cosmopolitan">
+        <div class="vgc-head">
+          <div>
+            <div class="vgc-name">Marquee</div>
+            <div class="vgc-loc">The Cosmopolitan</div>
+          </div>
+        </div>
+        <div class="vgc-genre">EDM (Hip-Hop when DJ Mustard performs)</div>
+        <ul class="vgc-notes">
+          <li>Classic Vegas mega-club with strong production</li>
+          <li>Consistent DJ lineups most nights</li>
+        </ul>
       </div>
+
+      <div class="vg-card" data-venues="Tao at Venetian">
+        <div class="vgc-head">
+          <div>
+            <div class="vgc-name">TAO</div>
+            <div class="vgc-loc">The Venetian</div>
+          </div>
+        </div>
+        <div class="vgc-genre">Hip-Hop · RnB</div>
+        <ul class="vgc-notes">
+          <li>Iconic Las Vegas nightlife venue with a striking design</li>
+          <li>VIP-heavy scene with a high-energy party atmosphere</li>
+        </ul>
+      </div>
+
+      <div class="vg-card" data-venues="Hakkasan at MGM Grand">
+        <div class="vgc-head">
+          <div>
+            <div class="vgc-name">Hakkasan</div>
+            <div class="vgc-loc">MGM Grand</div>
+          </div>
+        </div>
+        <div class="vgc-genre">Hip-Hop · EDM (varies by performer)</div>
+        <ul class="vgc-notes">
+          <li>Massive multi-level club with impressive production</li>
+          <li>Popular for major headliners and big event nights</li>
+        </ul>
+      </div>
+
+      <div class="vg-card" data-venues="Jewel at Aria">
+        <div class="vgc-head">
+          <div>
+            <div class="vgc-name">Jewel</div>
+            <div class="vgc-loc">Aria Resort</div>
+          </div>
+        </div>
+        <div class="vgc-genre">Hip-Hop · RnB</div>
+        <ul class="vgc-notes">
+          <li>High-energy with strong sound and visuals</li>
+          <li>More intimate feel compared to the mega-venues</li>
+        </ul>
+      </div>
+
+      <div class="vg-card" data-venues="Zouk at Resorts World">
+        <div class="vgc-head">
+          <div>
+            <div class="vgc-name">Zouk</div>
+            <div class="vgc-loc">Resorts World</div>
+          </div>
+        </div>
+        <div class="vgc-genre">EDM (varies when T-Pain performs)</div>
+        <ul class="vgc-notes">
+          <li>One of the newest major venues in Las Vegas</li>
+          <li>Home to Kaskade and James Hype residencies</li>
+        </ul>
+      </div>
+
+      <div class="vg-card" data-venues="XS at Encore">
+        <div class="vgc-head">
+          <div>
+            <div class="vgc-name">XS</div>
+            <div class="vgc-loc">Encore / Wynn</div>
+          </div>
+        </div>
+        <div class="vgc-genre">EDM</div>
+        <ul class="vgc-notes">
+          <li>Indoor club plus outdoor poolside patio</li>
+          <li>Without a table, you may be limited to the outdoor area</li>
+          <li>Calvin Harris events are blacked out</li>
+        </ul>
+      </div>
+
+      <div class="vg-card vg-card-warn" data-venues="LIV at Fontainebleau">
+        <div class="vgc-head">
+          <div>
+            <div class="vgc-name">LIV</div>
+            <div class="vgc-loc">Fontainebleau Las Vegas</div>
+          </div>
+          <div class="vgc-badge vgc-caution">⚠️ Read First</div>
+        </div>
+        <div class="vgc-genre">EDM (Hip-Hop when Metro Boomin performs)</div>
+        <ul class="vgc-notes">
+          <li>Early arrival mandatory — available with Coyote Ugly package only</li>
+          <li>Venue oversells; late arrivals may be denied entry</li>
+          <li>Blacked out: John Summit, Knock2</li>
+        </ul>
+      </div>
+
+      <div class="vg-card vg-card-warn" data-venues="Omnia at Caesars Palace">
+        <div class="vgc-head">
+          <div>
+            <div class="vgc-name">OMNIA</div>
+            <div class="vgc-loc">Caesars Palace</div>
+          </div>
+          <div class="vgc-badge vgc-caution">⚠️ Read First</div>
+        </div>
+        <div class="vgc-genre">EDM — Most Requested Venue · Longest Lines</div>
+        <ul class="vgc-notes">
+          <li>Early arrival mandatory — available with Coyote Ugly package only</li>
+          <li>Signature kinetic chandelier and multi-room layout</li>
+          <li>Venue oversells; arrive late and you may face surge pricing or denial</li>
+          <li>Blacked out: Calvin Harris, John Summit, Martin Garrix</li>
+        </ul>
+      </div>
+
     </div>
   </div>
 </section>
@@ -965,28 +1125,40 @@ h2{font-size:clamp(1.8rem,4vw,2.75rem);color:var(--wh);margin-bottom:.85rem}
 .addon-note{font-size:.85rem;color:var(--mt);text-align:center}
 .addon-note a{color:var(--pk);text-decoration:underline}
 
-/* CLUB FINDER */
-.finder-layout{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start}
-@media(max-width:800px){.finder-layout{grid-template-columns:1fr}}
-.finder-top{background:var(--d3);border-radius:12px;border:1px solid rgba(233,30,204,.28);padding:2.5rem;margin-bottom:1.25rem;text-align:center;box-shadow:0 0 50px rgba(233,30,204,.06)}
-.finder-top label{display:block;font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;color:var(--pk);font-weight:700;margin-bottom:1rem}
-#eDate{background:rgba(255,255,255,.07);border:2px solid rgba(233,30,204,.3);color:var(--wh);font-size:1.1rem;font-weight:600;padding:.85rem 1.75rem;border-radius:8px;cursor:pointer;outline:none;color-scheme:dark;width:100%;max-width:300px;transition:border-color .2s}
-#eDate:focus{border-color:var(--pk);box-shadow:0 0 20px rgba(233,30,204,.25)}
-.f-hint{font-size:.8rem;color:var(--mt);margin-top:.85rem}
-.f-results{background:var(--d3);border-radius:12px;border:1px solid rgba(0,229,255,.18);padding:2rem;box-shadow:0 0 40px rgba(0,229,255,.05)}
-.f-results.hidden{display:none}
-.f-day{font-size:1.15rem;font-weight:800;color:var(--wh);margin-bottom:.3rem}
-.f-count{font-size:.85rem;color:var(--cy);margin-bottom:1.25rem}
-.f-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:.65rem;margin-bottom:1.25rem}
-.f-chip{background:rgba(0,229,255,.07);border:1px solid rgba(0,229,255,.22);border-radius:8px;padding:.65rem .9rem;font-size:.84rem;font-weight:600;color:var(--tx);display:flex;align-items:center;gap:.5rem}
-.f-chip::before{content:'✓';color:var(--cy);font-size:.8rem;flex-shrink:0}
-.f-blackout{background:rgba(255,160,0,.07);border:1px solid rgba(255,160,0,.22);border-radius:8px;padding:1rem 1.25rem;font-size:.84rem;color:rgba(237,232,248,.85);margin-bottom:1.25rem}
-.f-blackout.hidden{display:none}
-.f-blackout a{color:var(--pk);text-decoration:underline}
-.f-btns{display:flex;gap:1rem;flex-wrap:wrap}
-.club-chart{background:var(--d3);border:1px solid rgba(255,255,255,.06);border-radius:12px;overflow:hidden}
-.cc-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mt);font-weight:700;padding:1rem 1.25rem .75rem}
-.club-chart img{width:100%;height:auto}
+/* VENUE GUIDE */
+.vg-tabs{display:flex;gap:.5rem;margin-bottom:1.5rem;flex-wrap:wrap}
+.vg-tab{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:var(--mt);font-size:.88rem;font-weight:700;padding:.55rem 1.1rem;border-radius:8px;cursor:pointer;transition:all .2s;letter-spacing:.04em}
+.vg-tab:hover{background:rgba(233,30,204,.12);border-color:rgba(233,30,204,.3);color:var(--wh)}
+.vg-tab.active{background:rgba(233,30,204,.18);border-color:var(--pk);color:var(--wh)}
+.vg-list{background:var(--d3);border:1px solid rgba(0,229,255,.15);border-radius:12px;padding:1.5rem;margin-bottom:1.25rem;min-height:80px}
+.vg-list-item{display:flex;align-items:center;gap:.75rem;padding:.55rem 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.92rem;color:var(--tx)}
+.vg-list-item:last-child{border-bottom:none}
+.vg-list-item .vli-check{color:var(--cy);font-size:.8rem;flex-shrink:0}
+.vg-list-item .vli-name{font-weight:700;color:var(--wh)}
+.vg-list-item .vli-loc{color:var(--mt);font-size:.82rem;margin-left:.25rem}
+.vg-list-item .vli-warn{background:rgba(255,160,0,.15);border:1px solid rgba(255,160,0,.3);color:#ffa040;font-size:.72rem;font-weight:700;padding:.15rem .5rem;border-radius:4px;margin-left:.5rem;flex-shrink:0}
+.vg-warning{background:rgba(255,140,0,.07);border:1px solid rgba(255,140,0,.3);border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+.vg-warning.hidden{display:none}
+.vgw-title{font-size:.9rem;font-weight:800;color:#ffa040;margin-bottom:.75rem}
+.vg-warning ul{margin:0;padding-left:1.25rem;display:flex;flex-direction:column;gap:.4rem}
+.vg-warning li{font-size:.84rem;color:rgba(237,232,248,.85);line-height:1.5}
+.vg-ctas{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.vg-divider{display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem}
+.vg-divider::before,.vg-divider::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.1)}
+.vg-divider span{font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;color:var(--mt);font-weight:700;white-space:nowrap}
+.vg-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem}
+.vg-card{background:var(--d3);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:1.25rem 1.5rem}
+.vg-card-warn{border-color:rgba(255,140,0,.25)}
+.vgc-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.6rem}
+.vgc-name{font-size:1.05rem;font-weight:800;color:var(--wh)}
+.vgc-loc{font-size:.78rem;color:var(--mt);margin-top:.15rem}
+.vgc-badge{font-size:.7rem;font-weight:700;padding:.2rem .6rem;border-radius:4px;white-space:nowrap}
+.vgc-top{background:rgba(0,229,255,.12);border:1px solid rgba(0,229,255,.3);color:var(--cy)}
+.vgc-caution{background:rgba(255,140,0,.12);border:1px solid rgba(255,140,0,.3);color:#ffa040}
+.vgc-genre{font-size:.8rem;color:var(--pk);font-weight:600;margin-bottom:.65rem;letter-spacing:.02em}
+.vgc-notes{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:.3rem}
+.vgc-notes li{font-size:.82rem;color:var(--mt);line-height:1.45}
+@media(max-width:600px){.vg-tabs{gap:.35rem}.vg-tab{padding:.45rem .8rem;font-size:.8rem}.vg-cards{grid-template-columns:1fr}}
 
 /* HOW IT WORKS */
 .hiw-section{background:var(--d1)}
@@ -1193,35 +1365,46 @@ const mobNav = document.getElementById('mob-nav');
 burger?.addEventListener('click', () => mobNav?.classList.toggle('open'));
 mobNav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobNav?.classList.remove('open')));
 
-// Club finder
-const schedule: Record<number,{clubs:string[];blackout:boolean}> = {
-  0:{clubs:['XS at Encore','Hakkasan at MGM Grand','Marquee at Cosmopolitan','Zouk at Resorts World','Foundation Room at Mandalay Bay'],blackout:false},
-  1:{clubs:['On The Record at Park MGM','Foundation Room at Mandalay Bay','Ghostbar at Palms'],blackout:false},
-  2:{clubs:['On The Record at Park MGM','Foundation Room at Mandalay Bay','Ghostbar at Palms'],blackout:false},
-  3:{clubs:['Marquee at Cosmopolitan','Omnia at Caesars Palace','Tao at Venetian','On The Record at Park MGM','Zouk at Resorts World'],blackout:false},
-  4:{clubs:['Marquee at Cosmopolitan','Hakkasan at MGM Grand','Omnia at Caesars Palace','Tao at Venetian','Foundation Room at Mandalay Bay','LIV at Fontainebleau'],blackout:false},
-  5:{clubs:['Jewel at Aria','Marquee at Cosmopolitan','Hakkasan at MGM Grand','Omnia at Caesars Palace','XS at Encore','Zouk at Resorts World','LIV at Fontainebleau','Tao at Venetian','EBC @ Night at Encore','Foundation Room at Mandalay Bay'],blackout:true},
-  6:{clubs:['Jewel at Aria','Marquee at Cosmopolitan','Hakkasan at MGM Grand','Omnia at Caesars Palace','XS at Encore','Zouk at Resorts World','LIV at Fontainebleau','Tao at Venetian','EBC @ Night at Encore','Foundation Room at Mandalay Bay','On The Record at Park MGM'],blackout:true},
+// Venue guide day tabs
+const vgSchedule: Record<number,{clubs:string[];warn:boolean}> = {
+  0:{clubs:['XS at Encore','Marquee at Cosmopolitan','Hakkasan at MGM Grand','Omnia at Caesars Palace','LIV at Fontainebleau','Foundation Room at Mandalay Bay'],warn:true},
+  1:{clubs:['On The Record at Park MGM','Ghostbar at Palms','Foundation Room at Mandalay Bay'],warn:false},
+  2:{clubs:['On The Record at Park MGM','Ghostbar at Palms','Foundation Room at Mandalay Bay'],warn:false},
+  3:{clubs:['Zouk at Resorts World','Ghostbar at Palms','Hakkasan at MGM Grand','Omnia at Caesars Palace','Foundation Room at Mandalay Bay'],warn:true},
+  4:{clubs:['Marquee at Cosmopolitan','Hakkasan at MGM Grand','Omnia at Caesars Palace','Tao at Venetian','Foundation Room at Mandalay Bay','LIV at Fontainebleau'],warn:true},
+  5:{clubs:['Marquee at Cosmopolitan','Tao at Venetian','Hakkasan at MGM Grand','Omnia at Caesars Palace','Ghostbar at Palms','Zouk at Resorts World','XS at Encore','LIV at Fontainebleau','On The Record at Park MGM','Jewel at Aria'],warn:true},
+  6:{clubs:['Marquee at Cosmopolitan','Tao at Venetian','Hakkasan at MGM Grand','Omnia at Caesars Palace','Foundation Room at Mandalay Bay','Ghostbar at Palms','Zouk at Resorts World','XS at Encore','LIV at Fontainebleau','On The Record at Park MGM','Jewel at Aria','EBC @ Night at Encore'],warn:true},
 };
-const days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-const inp = document.getElementById('eDate') as HTMLInputElement;
-const res = document.getElementById('fResults');
-const now = new Date();
-inp.min = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`;
-inp?.addEventListener('change',()=>{
-  const [y,m,d] = inp.value.split('-').map(Number);
-  if(!y) return;
-  const date = new Date(y,m-1,d);
-  const day = date.getDay();
-  const data = schedule[day];
-  const fDay = document.getElementById('fDay');
-  const fCount = document.getElementById('fCount');
-  const fGrid = document.getElementById('fGrid');
-  const fBlackout = document.getElementById('fBlackout');
-  if(fDay) fDay.textContent = `${days[day]}, ${date.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})}`;
-  if(fCount) fCount.textContent = `${data.clubs.length} clubs typically available`;
-  if(fGrid) fGrid.innerHTML = data.clubs.map(c=>`<div class="f-chip">${c}</div>`).join('');
-  fBlackout?.classList.toggle('hidden',!data.blackout);
-  res?.classList.remove('hidden');
+const warnVenues = ['Omnia at Caesars Palace','LIV at Fontainebleau'];
+const vgDayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const tabs = document.querySelectorAll('.vg-tab');
+const vgList = document.getElementById('vgList');
+const vgWarning = document.getElementById('vgWarning');
+
+function renderVgDay(dayNum: number) {
+  const data = vgSchedule[dayNum];
+  if(!data || !vgList) return;
+  const hasWarn = data.warn && data.clubs.some(c => warnVenues.includes(c));
+  vgList.innerHTML = `<div style="font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mt);font-weight:700;margin-bottom:.75rem">${vgDayNames[dayNum]} — ${data.clubs.length} venues available</div>` +
+    data.clubs.map(c => {
+      const isWarn = warnVenues.includes(c);
+      const parts = c.split(' at ');
+      return `<div class="vg-list-item"><span class="vli-check">✓</span><span class="vli-name">${parts[0]}</span>${parts[1] ? `<span class="vli-loc">at ${parts[1]}</span>` : ''}${isWarn ? '<span class="vli-warn">⚠️ Read First</span>' : ''}</div>`;
+    }).join('');
+  vgWarning?.classList.toggle('hidden', !hasWarn);
+}
+
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    renderVgDay(Number(tab.getAttribute('data-day')));
+  });
 });
+
+// Auto-select today's day
+const todayDay = new Date().getDay();
+const todayTab = document.querySelector(`.vg-tab[data-day="${todayDay}"]`);
+if(todayTab) { todayTab.classList.add('active'); renderVgDay(todayDay); }
+else { tabs[0]?.classList.add('active'); renderVgDay(Number(tabs[0]?.getAttribute('data-day') ?? 1)); }
 </script>
