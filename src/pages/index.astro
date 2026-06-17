@@ -110,6 +110,17 @@ import Layout from '../layouts/Layout.astro';
   </div>
 </section>
 
+<!-- QUICK JUMP -->
+<div class="quickjump">
+  <span class="qj-label">Jump to:</span>
+  <a href="#packages" class="qj-btn">📦 Packages</a>
+  <a href="#gallery" class="qj-btn">📸 Photos</a>
+  <a href="#clubs" class="qj-btn">🎉 Club Guide</a>
+  <a href="#reviews" class="qj-btn">⭐ Reviews</a>
+  <a href="#perfect-for" class="qj-btn">👥 Who It's For</a>
+  <a href="#faq" class="qj-btn">❓ FAQ</a>
+</div>
+
 <!-- BENTO GALLERY -->
 <section id="gallery" class="bento">
   <div class="bento-grid">
@@ -125,14 +136,22 @@ import Layout from '../layouts/Layout.astro';
   </div>
 </section>
 
-<!-- PHOTO ROW -->
-<div class="photo-row">
-  <img src="/images/On The Record.jpg" alt="On The Record at Park MGM Las Vegas" loading="lazy"/>
-  <img src="/images/Remi Cruz Bachelorette.jpg" alt="Celebrity bachelorette party bus Las Vegas" loading="lazy"/>
-  <img src="/images/MXZ01762-Enhanced-NR.jpg" alt="GXP Tours night" loading="lazy"/>
-  <img src="/images/_X1A1072.jpg" alt="Las Vegas party group" loading="lazy"/>
-  <img src="/images/Dutch Bros Bus Party-134.jpg" alt="Party bus group photo" loading="lazy"/>
-  <img src="/images/MXZ01901-Enhanced-NR.jpg" alt="Las Vegas group night out" loading="lazy"/>
+<!-- PHOTO ROW (scrolling) -->
+<div class="photo-scroll-wrap">
+  <div class="photo-scroll-track">
+    <img src="/images/On The Record.jpg" alt="On The Record at Park MGM Las Vegas" loading="lazy"/>
+    <img src="/images/Remi Cruz Bachelorette.jpg" alt="Celebrity bachelorette party bus Las Vegas" loading="lazy"/>
+    <img src="/images/MXZ01762-Enhanced-NR.jpg" alt="GXP Tours night" loading="lazy"/>
+    <img src="/images/_X1A1072.jpg" alt="Las Vegas party group" loading="lazy"/>
+    <img src="/images/Dutch Bros Bus Party-134.jpg" alt="Party bus group photo" loading="lazy"/>
+    <img src="/images/MXZ01901-Enhanced-NR.jpg" alt="Las Vegas group night out" loading="lazy"/>
+    <img src="/images/On The Record.jpg" alt="On The Record at Park MGM Las Vegas" loading="lazy"/>
+    <img src="/images/Remi Cruz Bachelorette.jpg" alt="Celebrity bachelorette party bus Las Vegas" loading="lazy"/>
+    <img src="/images/MXZ01762-Enhanced-NR.jpg" alt="GXP Tours night" loading="lazy"/>
+    <img src="/images/_X1A1072.jpg" alt="Las Vegas party group" loading="lazy"/>
+    <img src="/images/Dutch Bros Bus Party-134.jpg" alt="Party bus group photo" loading="lazy"/>
+    <img src="/images/MXZ01901-Enhanced-NR.jpg" alt="Las Vegas group night out" loading="lazy"/>
+  </div>
 </div>
 
 <!-- PACKAGES -->
@@ -420,6 +439,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="vgw-title">⚠️ Read Before Booking — Omnia &amp; LIV</div>
       <ul>
         <li>Early arrival is mandatory — these venues only work with the <strong>Coyote Ugly package</strong>, not the Ghostbar package.</li>
+        <li><strong>Omnia's main room is only open on Tuesdays, Fridays, and Saturdays.</strong></li>
         <li>The main DJ doesn't go on until 12–1 AM. You may be at the venue for several hours before the headliner starts.</li>
         <li>These venues are extremely crowded.</li>
         <li>Blacked-out events: <strong>Calvin Harris, John Summit, Martin Garrix.</strong> Contact us if you're set on one of these nights and we'll find you options.</li>
@@ -660,8 +680,6 @@ import Layout from '../layouts/Layout.astro';
         <a href="https://gxptours.rezdy.com/catalog/530827/nightclub-on-wheels" target="_blank" class="btn-p">Check Availability →</a>
       </div>
       <div class="urg-dates">
-        <div class="ud ud-hot"><span>EDC Las Vegas</span><em>May 15–17, 2026</em></div>
-        <div class="ud ud-hot"><span>Memorial Day Weekend</span><em>May 22–25, 2026</em></div>
         <div class="ud"><span>EVO 2026</span><em>June 26–27, 2026</em></div>
         <div class="ud"><span>4th of July</span><em>July 3–4, 2026</em></div>
         <div class="ud"><span>Labor Day Weekend</span><em>Sept 4–6, 2026</em></div>
@@ -669,6 +687,10 @@ import Layout from '../layouts/Layout.astro';
         <div class="ud"><span>IMEX America</span><em>Oct 16–17, 2026</em></div>
         <div class="ud"><span>SEMA 2026</span><em>Nov 6–7, 2026</em></div>
         <div class="ud ud-hot"><span>New Year's Eve</span><em>Dec 31, 2026</em></div>
+        <div class="ud ud-hot"><span>CES 2027</span><em>Jan 6–9, 2027</em></div>
+        <div class="ud ud-hot"><span>EDC Las Vegas — Weekend 1</span><em>May 14–16, 2027</em></div>
+        <div class="ud ud-hot"><span>EDC Las Vegas — Weekend 2</span><em>May 21–23, 2027</em></div>
+        <div class="ud ud-hot"><span>Memorial Day Weekend</span><em>May 28–31, 2027</em></div>
       </div>
     </div>
   </div>
@@ -1033,6 +1055,14 @@ h2{font-size:clamp(1.8rem,4vw,2.75rem);color:var(--wh);margin-bottom:.85rem}
 .pf-btn{font-size:.82rem;font-weight:700;color:var(--pk2);border:1px solid rgba(233,30,204,.3);padding:.5rem 1rem;border-radius:6px;text-align:center;transition:background .2s,color .2s;display:block}
 .pf-btn:hover{background:rgba(233,30,204,.12);color:var(--wh)}
 
+/* QUICK JUMP */
+.quickjump{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;padding:.85rem 1.5rem;background:var(--d2);border-bottom:1px solid rgba(255,255,255,.06);overflow-x:auto;scrollbar-width:none}
+.quickjump::-webkit-scrollbar{display:none}
+.qj-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--mt);font-weight:700;white-space:nowrap;flex-shrink:0}
+.qj-btn{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:rgba(237,232,248,.7);font-size:.78rem;font-weight:600;padding:.35rem .85rem;border-radius:999px;white-space:nowrap;transition:all .2s;text-decoration:none;flex-shrink:0}
+.qj-btn:hover{background:rgba(233,30,204,.15);border-color:rgba(233,30,204,.4);color:var(--wh)}
+@media(max-width:600px){.quickjump{padding:.75rem 1rem;gap:.5rem}.qj-btn{font-size:.74rem;padding:.3rem .7rem}}
+
 /* BENTO */
 .bento{padding:0;background:var(--d1)}
 .bento-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:280px 280px;gap:3px}
@@ -1172,11 +1202,13 @@ h2{font-size:clamp(1.8rem,4vw,2.75rem);color:var(--wh);margin-bottom:.85rem}
 .step p{font-size:.84rem;color:var(--mt);line-height:1.7}
 .sarr{font-size:1.5rem;color:var(--pk);padding-top:3rem;opacity:.45}
 
-/* PHOTO ROW */
-.photo-row{display:grid;grid-template-columns:repeat(6,1fr);height:240px;gap:3px}
-.photo-row img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
-.photo-row img:hover{transform:scale(1.05);z-index:1;position:relative}
-@media(max-width:700px){.photo-row{grid-template-columns:repeat(3,1fr);height:280px}}
+/* PHOTO ROW (scrolling) */
+.photo-scroll-wrap{overflow:hidden;height:240px;background:var(--d1)}
+.photo-scroll-track{display:flex;gap:3px;height:100%;animation:photoScroll 28s linear infinite;width:max-content}
+.photo-scroll-track img{height:100%;width:320px;object-fit:cover;flex-shrink:0}
+.photo-scroll-wrap:hover .photo-scroll-track{animation-play-state:paused}
+@keyframes photoScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(max-width:700px){.photo-scroll-wrap{height:200px}.photo-scroll-track img{width:220px}}
 
 /* WHY GXP */
 .why-section{background:var(--bk)}
