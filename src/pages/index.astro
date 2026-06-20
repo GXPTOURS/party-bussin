@@ -121,12 +121,8 @@ import Layout from '../layouts/Layout.astro';
 <!-- BENTO GALLERY -->
 <section id="gallery" class="bento">
   <div class="bento-grid">
-    <div class="b b1"><img src="/images/Party Bus Kids-007.jpg" alt="Kids party bus Las Vegas" loading="lazy"/><div class="b-label">The Bus 🚌</div></div>
-    <div class="b b2"><img src="/images/Party Bus Kids-041.jpg" alt="Kids dancing party bus" loading="lazy"/><div class="b-label">Pure Energy 🔥</div></div>
-    <div class="b b3"><img src="/images/Party Bus Kids-015.jpg" alt="Kids celebrating Las Vegas" loading="lazy"/><div class="b-label">VIP Vibes ✨</div></div>
-    <div class="b b4"><img src="/images/Party Bus Kids-042.jpg" alt="Group of kids party bus" loading="lazy"/><div class="b-label">Your Crew 🎉</div></div>
-    <div class="b b5"><img src="/images/Party Bus Kids-046.jpg" alt="Kids having fun Las Vegas" loading="lazy"/><div class="b-label">Glow Up 🎊</div></div>
-    <div class="b b6"><img src="/images/Party Bus Kids-056.jpg" alt="Party bus celebration kids" loading="lazy"/><div class="b-label">Every Weekend 🎈</div></div>
+    <div class="b b1"><img src="/images/Party Bus Kids-007.jpg" alt="Kids party bus Las Vegas" loading="lazy"/><div class="b-label">Your Crew 🎉</div></div>
+    <div class="b b2"><img src="/images/Party Bus Kids-046.jpg" alt="Kids singing on party bus Las Vegas" loading="lazy"/><div class="b-label">Pure Energy 🎤</div></div>
   </div>
   <div class="bento-cta">
     <a href="#packages" class="btn-p">I Want This for My Kids →</a>
@@ -196,7 +192,7 @@ import Layout from '../layouts/Layout.astro';
       <!-- DAVE & BUSTER'S — MOST POPULAR -->
       <div class="pkg pkg-hot">
         <div class="pkg-pop">🕹️ Most Popular</div>
-        <img src="/images/IMG_1571.JPG" alt="Dave and Busters Las Vegas kids party" class="pkg-img" loading="lazy"/>
+        <img src="/images/Dave & Busters.jpg" alt="Dave and Busters Las Vegas kids party" class="pkg-img" loading="lazy"/>
         <div class="pkg-body">
           <div class="pkg-venue-tag pkg-venue-hot">🕹️ Dave &amp; Buster's</div>
           <div class="pkg-name">Party Bussin' to D&amp;B</div>
@@ -310,7 +306,7 @@ import Layout from '../layouts/Layout.astro';
           <a href="#packages" class="btn-p">Book 17+ &amp; Get It Free →</a>
         </div>
         <div class="promo-right">
-          <img src="/images/Party Bus Kids-083.jpg" alt="Large group kids party bus Las Vegas" loading="lazy"/>
+          <img src="/images/Party Bus Kids-031.jpg" alt="Large group kids party bus Las Vegas" loading="lazy"/>
           <div class="promo-pill">$349 value · FREE at 17+</div>
         </div>
       </div>
@@ -635,7 +631,7 @@ h2{font-size:clamp(1.75rem,4vw,2.6rem);font-weight:800;line-height:1.2;text-alig
 
 /* ===== BENTO ===== */
 .bento{background:var(--dark);padding:0}
-.bento-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:280px 280px;gap:4px}
+.bento-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:480px;gap:4px}
 .b{position:relative;overflow:hidden}
 .b img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
 .b:hover img{transform:scale(1.05)}
@@ -643,11 +639,9 @@ h2{font-size:clamp(1.75rem,4vw,2.6rem);font-weight:800;line-height:1.2;text-alig
 .b2{grid-column:3/4;grid-row:1/2}
 .b3{grid-column:4/5;grid-row:1/2}
 .b4{grid-column:1/2;grid-row:2/3}
-.b5{grid-column:2/4;grid-row:2/3}
-.b6{grid-column:4/5;grid-row:2/3}
 .b-label{position:absolute;bottom:.75rem;left:.75rem;background:rgba(0,0,0,.6);backdrop-filter:blur(8px);color:#fff;font-size:.78rem;font-weight:700;padding:.3rem .7rem;border-radius:50px}
 .bento-cta{text-align:center;padding:2rem}
-@media(max-width:700px){.bento-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}.b1,.b2,.b3,.b4,.b5,.b6{grid-column:auto;grid-row:auto}}
+@media(max-width:700px){.bento-grid{grid-template-columns:1fr;grid-template-rows:320px 320px}}
 
 /* ===== PHOTO SCROLL ===== */
 .photo-scroll-wrap{overflow:hidden;background:var(--dark)}
