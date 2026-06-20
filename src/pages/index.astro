@@ -285,23 +285,25 @@ import Layout from '../layouts/Layout.astro';
 <!-- SWAG SECTION -->
 <section class="section swag-section">
   <div class="container">
-    <div class="swag-wrap">
-      <div class="swag-photo">
-        <img src="/images/Custom Gift Bags and shirts.jpeg" alt="Custom party favor gift bags and shirts" loading="lazy"/>
+    <div class="slabel">Party Favors</div>
+    <h2>Custom Swag <span class="grad">They'll Actually Keep</span></h2>
+    <p class="sdesc">Every kid goes home with something to remember the day — branded shirts, accessories, and a packed gift bag handed out at the pizza party.</p>
+    <div class="swag-photos">
+      <div class="swag-card">
+        <img src="/images/Custom Gift Bags and shirts.jpeg" alt="Boys custom party favor gift bags and shirts" loading="lazy"/>
+        <div class="swag-card-label">Boys Pack 🎽</div>
       </div>
-      <div class="swag-copy">
-        <div class="slabel">Party Favors</div>
-        <h2>Custom Swag <span class="grad">They'll Actually Keep</span></h2>
-        <p>Every kid goes home with something to remember the day. We put together custom gift bags loaded with Party Bussin' gear — branded shirts, accessories, and extras that make the memory last well past pickup.</p>
-        <ul class="swag-list">
-          <li>🎽 Custom Party Bussin' tee</li>
-          <li>🎁 Packed gift bag for every kid</li>
-          <li>✨ Accessories &amp; glow gear included</li>
-          <li>📦 All handed out at the pizza party</li>
-        </ul>
-        <a href="#packages" class="btn-p">Add to Your Package →</a>
+      <div class="swag-card">
+        <img src="/images/Custom Gift Bags and shirts (girls version).jpeg" alt="Girls custom party favor gift bags and shirts" loading="lazy"/>
+        <div class="swag-card-label">Girls Pack 💜</div>
       </div>
     </div>
+    <ul class="swag-list">
+      <li>🎽 Custom Party Bussin' tee for every kid</li>
+      <li>🎁 Packed gift bag with accessories &amp; glow gear</li>
+      <li>📦 Handed out at the pizza party — surprise moment included</li>
+    </ul>
+    <div style="text-align:center"><a href="#packages" class="btn-p">Add to Your Package →</a></div>
   </div>
 </section>
 
@@ -715,14 +717,14 @@ h2{font-size:clamp(1.75rem,4vw,2.6rem);font-weight:800;line-height:1.2;text-alig
 .inc-photos img{width:100%;height:200px;object-fit:cover;border-radius:12px}
 
 /* ===== SWAG ===== */
-.swag-section{background:var(--dark-3)}
-.swag-wrap{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-.swag-photo img{width:100%;border-radius:20px;object-fit:cover;max-height:480px}
-.swag-copy h2{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:900;margin-bottom:1rem;line-height:1.2}
-.swag-copy p{color:var(--text-muted);margin-bottom:1.5rem;font-size:1rem;line-height:1.7}
-.swag-list{list-style:none;margin-bottom:2rem;display:flex;flex-direction:column;gap:.6rem}
+.swag-section{background:var(--dark-3);text-align:center}
+.swag-photos{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:2rem 0}
+.swag-card{position:relative;border-radius:20px;overflow:hidden}
+.swag-card img{width:100%;height:400px;object-fit:cover;display:block}
+.swag-card-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,.75),transparent);color:#fff;font-size:1.1rem;font-weight:800;padding:1.5rem 1rem .9rem;text-align:left}
+.swag-list{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin:0 auto 2rem;max-width:480px;text-align:left}
 .swag-list li{font-size:.95rem;color:var(--text)}
-@media(max-width:800px){.swag-wrap{grid-template-columns:1fr;gap:2rem}}
+@media(max-width:700px){.swag-photos{grid-template-columns:1fr}.swag-card img{height:280px}}
 
 /* ===== PROMO ===== */
 .promo-section{background:var(--dark-2)}
