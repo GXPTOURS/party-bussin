@@ -277,7 +277,30 @@ import Layout from '../layouts/Layout.astro';
     <div class="inc-photos">
       <img src="/images/Party Bus Kids-046.jpg" alt="Kids on party bus Las Vegas" loading="lazy"/>
       <img src="/images/Party Bus Kids-074.jpg" alt="Kids celebrating Las Vegas party" loading="lazy"/>
-      <img src="/images/Party Bus Kids-082.jpg" alt="Kids pizza party celebration" loading="lazy"/>
+      <img src="/images/Party Bus Kids-099.jpg" alt="Kids pizza party celebration" loading="lazy"/>
+    </div>
+  </div>
+</section>
+
+<!-- SWAG SECTION -->
+<section class="section swag-section">
+  <div class="container">
+    <div class="swag-wrap">
+      <div class="swag-photo">
+        <img src="/images/Custom Gift Bags and shirts.jpeg" alt="Custom party favor gift bags and shirts" loading="lazy"/>
+      </div>
+      <div class="swag-copy">
+        <div class="slabel">Party Favors</div>
+        <h2>Custom Swag <span class="grad">They'll Actually Keep</span></h2>
+        <p>Every kid goes home with something to remember the day. We put together custom gift bags loaded with Party Bussin' gear — branded shirts, accessories, and extras that make the memory last well past pickup.</p>
+        <ul class="swag-list">
+          <li>🎽 Custom Party Bussin' tee</li>
+          <li>🎁 Packed gift bag for every kid</li>
+          <li>✨ Accessories &amp; glow gear included</li>
+          <li>📦 All handed out at the pizza party</li>
+        </ul>
+        <a href="#packages" class="btn-p">Add to Your Package →</a>
+      </div>
     </div>
   </div>
 </section>
@@ -694,6 +717,16 @@ h2{font-size:clamp(1.75rem,4vw,2.6rem);font-weight:800;line-height:1.2;text-alig
 .inc p{font-size:.88rem;color:var(--text-muted)}
 .inc-photos{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem}
 .inc-photos img{width:100%;height:200px;object-fit:cover;border-radius:12px}
+
+/* ===== SWAG ===== */
+.swag-section{background:var(--dark-3)}
+.swag-wrap{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.swag-photo img{width:100%;border-radius:20px;object-fit:cover;max-height:480px}
+.swag-copy h2{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:900;margin-bottom:1rem;line-height:1.2}
+.swag-copy p{color:var(--text-muted);margin-bottom:1.5rem;font-size:1rem;line-height:1.7}
+.swag-list{list-style:none;margin-bottom:2rem;display:flex;flex-direction:column;gap:.6rem}
+.swag-list li{font-size:.95rem;color:var(--text)}
+@media(max-width:800px){.swag-wrap{grid-template-columns:1fr;gap:2rem}}
 
 /* ===== PROMO ===== */
 .promo-section{background:var(--dark-2)}
