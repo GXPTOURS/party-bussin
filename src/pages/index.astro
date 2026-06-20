@@ -118,14 +118,19 @@ import Layout from '../layouts/Layout.astro';
   <a href="#faq" class="qj-btn">❓ FAQ</a>
 </div>
 
-<!-- BENTO GALLERY -->
-<section id="gallery" class="bento">
-  <div class="bento-grid">
-    <div class="b b1"><img src="/images/Party Bus Kids-007.jpg" alt="Kids party bus Las Vegas" loading="lazy"/><div class="b-label">Your Crew 🎉</div></div>
-    <div class="b b2"><img src="/images/Party Bus Kids-046.jpg" alt="Kids singing on party bus Las Vegas" loading="lazy"/><div class="b-label">Pure Energy 🎤</div></div>
-  </div>
-  <div class="bento-cta">
-    <a href="#packages" class="btn-p">I Want This for My Kids →</a>
+<!-- GALLERY -->
+<section id="gallery" class="section gallery-section">
+  <div class="container">
+    <div class="slabel">Real Kids. Real Fun.</div>
+    <h2>See What's Waiting <span class="grad">for Your Crew</span></h2>
+    <div class="gallery-row">
+      <img src="/images/Party Bus Kids-007.jpg" alt="Kids on party bus Las Vegas" loading="lazy"/>
+      <img src="/images/Party Bus Kids-046.jpg" alt="Girl singing on party bus Las Vegas" loading="lazy"/>
+      <img src="/images/Party Bus Kids-031.jpg" alt="Kids celebrating on party bus Las Vegas" loading="lazy"/>
+    </div>
+    <div style="text-align:center;margin-top:2rem">
+      <a href="#packages" class="btn-p">I Want This for My Kids →</a>
+    </div>
   </div>
 </section>
 
@@ -654,15 +659,12 @@ h2{font-size:clamp(1.75rem,4vw,2.6rem);font-weight:800;line-height:1.2;text-alig
 .qj-btn{font-size:.82rem;font-weight:600;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);border-radius:50px;padding:.35rem .85rem;transition:background .2s,border-color .2s}
 .qj-btn:hover{background:rgba(255,107,0,.2);border-color:var(--orange);color:var(--yellow)}
 
-/* ===== BENTO ===== */
-.bento{background:var(--dark);padding:0}
-.bento-grid{display:flex;gap:4px;height:360px}
-.b{position:relative;overflow:hidden;flex:1}
-.b img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
-.b:hover img{transform:scale(1.05)}
-.b-label{position:absolute;bottom:.75rem;left:.75rem;background:rgba(0,0,0,.6);backdrop-filter:blur(8px);color:#fff;font-size:.78rem;font-weight:700;padding:.3rem .7rem;border-radius:50px}
-.bento-cta{text-align:center;padding:2rem}
-@media(max-width:700px){.bento-grid{flex-direction:column;height:640px}}
+/* ===== GALLERY ===== */
+.gallery-section{background:var(--dark)}
+.gallery-section h2{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:900;margin-bottom:1.5rem}
+.gallery-row{display:flex;gap:1rem}
+.gallery-row img{flex:1;width:0;height:360px;object-fit:cover;border-radius:16px}
+@media(max-width:700px){.gallery-row{flex-direction:column}.gallery-row img{width:100%;height:260px}}
 
 /* ===== PHOTO SCROLL ===== */
 .photo-scroll-wrap{overflow:hidden;background:var(--dark)}
@@ -720,7 +722,7 @@ h2{font-size:clamp(1.75rem,4vw,2.6rem);font-weight:800;line-height:1.2;text-alig
 .swag-section{background:var(--dark-3);text-align:center}
 .swag-photos{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:2rem 0}
 .swag-card{position:relative;border-radius:20px;overflow:hidden}
-.swag-card img{width:100%;height:400px;object-fit:cover;display:block}
+.swag-card img{width:100%;height:auto;object-fit:contain;display:block;background:rgba(255,255,255,.04)}
 .swag-card-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,.75),transparent);color:#fff;font-size:1.1rem;font-weight:800;padding:1.5rem 1rem .9rem;text-align:left}
 .swag-list{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin:0 auto 2rem;max-width:480px;text-align:left}
 .swag-list li{font-size:.95rem;color:var(--text)}
