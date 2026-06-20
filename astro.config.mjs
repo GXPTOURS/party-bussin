@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://gxp-nightclub.vercel.app',
+  site: 'https://gxp-party-bussin.vercel.app',
 });
